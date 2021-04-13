@@ -1,0 +1,52 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Report",
+   "links": "[\n    {\n        \"dependencies\": [\n            \"Property\"\n        ],\n        \"doctype\": \"Property\",\n        \"is_query_report\": true,\n        \"label\": \"Property Report\",\n        \"name\": \"Property\",\n        \"type\": \"report\"\n    }\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-04-05 23:48:40.183215",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Estate App",
+ "modified": "2021-04-06 01:34:03.288545",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "Estate App",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "color": "#ffe8cd",
+   "doc_view": "List",
+   "format": "{} Open",
+   "label": "Property",
+   "link_to": "Property",
+   "stats_filter": "",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Property Type",
+   "link_to": "Property Type",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Agents",
+   "link_to": "Agent",
+   "type": "DocType"
+  }
+ ]
+}

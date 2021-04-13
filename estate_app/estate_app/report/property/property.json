@@ -1,0 +1,26 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2021-04-06 00:11:02.665469",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2021-04-06 00:56:24.142718",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "Property",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Property",
+ "report_name": "Property",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

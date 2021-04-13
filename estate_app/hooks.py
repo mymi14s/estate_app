@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from . import __version__ as app_version
+from estate_app.route import routes
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -33,7 +34,10 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Expense Claim" : "public/js/doctype_plugin/expense_claim.js",
+    # "Sales Invoice": ""
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -48,6 +52,8 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+website_route_rules = routes
 
 # Generators
 # ----------
@@ -91,13 +97,18 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# },
+    "Property": {
+        "validate": "estate_app.estate_app.doctype.property.events.validate",
+        "on_update": "estate_app.estate_app.doctype.property.events.on_update",
+        "after_insert": "estate_app.estate_app.doctype.property.events.after_insert",
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -142,4 +153,3 @@ app_license = "MIT"
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
