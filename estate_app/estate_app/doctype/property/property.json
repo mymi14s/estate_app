@@ -8,6 +8,7 @@
  "field_order": [
   "property_name",
   "address",
+  "city",
   "property_type",
   "property_price",
   "discount",
@@ -118,11 +119,18 @@
    "fieldname": "grand_total",
    "fieldtype": "Currency",
    "label": "Grand Total"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-04-05 23:22:27.118603",
+ "modified": "2021-04-14 08:39:46.959817",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",
