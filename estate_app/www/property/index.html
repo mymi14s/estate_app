@@ -133,7 +133,8 @@
                 <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
                 <h2 class="property-title"><a href="/property/detail/{{property.name}}">{{property.property_name}}</a></h2>
                 <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> {{property.address}}</span>
-                <strong class="property-price text-primary mb-3 d-block text-success">{{ frappe.format(property.grand_total, {'fieldtype': 'Currency'}) }}</strong>
+                <strong class="property-price text-primary mb-3 d-block text-success">
+                  {{ frappe.format(property.grand_total, {'fieldtype': 'Currency'}) }} <br> {{property_in_btc(property.grand_total)}}</strong>
                 <!-- <ul class="property-specs-wrap mb-3 mb-lg-0">
                   <li>
                     <span class="property-specs">Beds</span>

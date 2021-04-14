@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 from .route import routes
+from .jinja import jenvs
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -54,7 +55,7 @@ doctype_js = {
 # }
 
 website_route_rules = routes
-
+jenv = jenvs
 # Generators
 # ----------
 
