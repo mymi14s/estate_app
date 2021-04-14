@@ -4,11 +4,11 @@ from bitcoin_value import currency
 
 jenvs = {
     "methods": [
-        "exp:estate_app.jinja.exp",
-        "property_in_btc:estate_app.jinja.property_in_btc"
+        "exp:estate_app.hooks.jinja.exp",
+        "property_in_btc:estate_app.hooks.jinja.property_in_btc"
     ],
     "filters": [
-        "add:estate_app.jinja.add"
+        "add:estate_app.hooks.jinja.add"
     ]
 }
 

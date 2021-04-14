@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from . import __version__ as app_version
+from .. import __version__ as app_version
 from .route import routes
 from .jinja import jenvs
+from .doc_events import doc_events
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -98,18 +99,7 @@ jenv = jenvs
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-	# "*": {
-	# 	"on_update": "method",
-	# 	"on_cancel": "method",
-	# 	"on_trash": "method"
-	# },
-    "Property": {
-        "validate": "estate_app.estate_app.doctype.property.events.validate",
-        "on_update": "estate_app.estate_app.doctype.property.events.on_update",
-        "after_insert": "estate_app.estate_app.doctype.property.events.after_insert",
-    }
-}
+doc_events = doc_events
 
 # Scheduled Tasks
 # ---------------
