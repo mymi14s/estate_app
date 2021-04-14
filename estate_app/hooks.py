@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from . import __version__ as app_version
-from estate_app.route import routes
+from .route import routes
 
 app_name = "estate_app"
 app_title = "Estate App"

@@ -166,13 +166,12 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="site-pagination">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <span>...</span>
-              <a href="#">10</a>
+              {% if prev %}
+              <a href="/?page={{prev}}" class="btn btn-warning">Previous</a>
+              {% endif %}
+              {% if next %}
+              <a href="/?page={{next}}" class="btn btn-primary">Next</a>
+              {% endif %}
             </div>
           </div>
         </div>
