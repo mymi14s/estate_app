@@ -14,7 +14,17 @@ class Property(Document):
 
 	# validate
 	def validate(self):
-		pass
+		amenity_prices = 0
+		for i in self.amenities:
+			amenity_prices+=i.amenity_price
+		discount = 0
+		self.grand_total = self.property_price+amenity_prices - ((self.discount/100)* (self.property_price+amenity_prices))
+		
+
+
+
+
+
 		# try:
 		# 	frappe.db.sql("""SELECT name, tenant, friends FROM `tabProperty`;""")
 		# except Exception as e:
