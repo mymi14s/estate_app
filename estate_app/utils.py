@@ -34,7 +34,8 @@ def paginate(doctype, page=0, conditions=" ", paginate_by=6):
             pass
         properties = frappe.db.sql(query+f"""LIMIT {paginate_by};""", as_dict=True)
 
-    if(conditions):search=True
+    if(conditions):
+        search=True
     return {
         'properties': properties,
         'prev': prev,

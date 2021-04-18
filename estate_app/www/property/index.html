@@ -165,7 +165,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="site-pagination">
-              {% if search %}
+              {% if frappe.form_dict.type %}
                 {% if prev  %}
                 <a href="/?page={{prev}}&type={{type}}&status={{status}}&city={{city}}" class="btn btn-warning">Previous</a>
                 {% endif %}
