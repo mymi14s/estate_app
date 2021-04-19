@@ -12,8 +12,6 @@ MyPage = Class.extend({
 		});
 		// make page
 		this.make();
-		let $new = this.page.set_primary_action('New', () => create_new(), 'octicon octicon-plus')
-		let $refresh = this.page.set_secondary_action('Refresh', () => refresh(), 'octicon octicon-sync')
 	},
 
 	// make page
@@ -28,8 +26,6 @@ MyPage = Class.extend({
 			return money
 		}
 
-
-
 		// get total price
 		let total = function(){
 			frappe.call({
@@ -42,11 +38,116 @@ MyPage = Class.extend({
             }
         })
 		}
+
+		// GRAPH CALL
+		let status = function(){
+			frappe.call({
+            method: "estate_app.estate_app.page.estate.estate.get_property_price_by_status", //dotted path to server method
+            callback: function(r) {
+                // code snippet
+								console.log(r);
+								// let price_tuple = ()
+								let statuses = []
+								let prices = []
+								let message = r.message
+								message.forEach((item) => {
+									statuses.push(item[0]);
+									prices.push(item[1]);
+									// price_tuplepush(item[1])
+								});;
+								// console.log(statuses, prices)
+								// start chart
+								let chart = new frappe.Chart( "#frost-chart", { // or DOM element
+								data: {
+								labels: statuses,
+
+								datasets: [
+									{
+										name: statuses[0], chartType: 'bar',
+										values: [prices[0],  0,  0]
+									},
+									{
+										name: statuses[1], chartType: 'bar',
+										values: [0, prices[1], 0]
+									},
+									{
+										name: statuses[2], chartType: 'bar',
+										values: [0, 0, prices[2]]
+									}
+								],
+
+								yMarkers: [{ label: "Marker", value: 80000000,
+									options: { labelPos: 'left' }}],
+								yRegions: [{ label: "Region", start: 0,
+									end: 100000000,
+									options: { labelPos: 'right' }}]
+								},
+
+								title: "Estate Price Chart",
+								type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
+								height: 500,
+								colors: ['red', 'blue', 'green'],
+
+								tooltipOptions: {
+									formatTooltipX: d => (d + '').toUpperCase(),
+									formatTooltipY: d => d + ' pts',
+								}
+								});
+								console.log('ready')
+								alert('Ready')
+								// end chart
+          }
+        })
+		}
+
+		// chart
+		// let page_chart = function(){
+		// 	let chart = new frappe.Chart( "#frost-chart", { // or DOM element
+		// 	data: {
+		// 	labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+		// 		"12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
+		//
+		// 	datasets: [
+		// 		{
+		// 			name: "Some Data", chartType: 'bar',
+		// 			values: [25, 40, 30, 35, 8, 52, 17, -4]
+		// 		},
+		// 		{
+		// 			name: "Another Set", chartType: 'bar',
+		// 			values: [25, 50, -10, 15, 18, 32, 27, 14]
+		// 		},
+		// 		{
+		// 			name: "Yet Another", chartType: 'bar',
+		// 			values: [15, 20, -3, -15, 58, 12, -17, 37]
+		// 		}
+		// 	],
+		//
+		// 	yMarkers: [{ label: "Marker", value: 70,
+		// 		options: { labelPos: 'left' }}],
+		// 	yRegions: [{ label: "Region", start: -10, end: 50,
+		// 		options: { labelPos: 'right' }}]
+		// 	},
+		//
+		// 	title: "Estate Price Chart",
+		// 	type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
+		// 	height: 300,
+		// 	colors: ['red', 'blue', 'green'],
+		//
+		// 	tooltipOptions: {
+		// 		formatTooltipX: d => (d + '').toUpperCase(),
+		// 		formatTooltipY: d => d + ' pts',
+		// 	}
+		//   });
+		// 	// chart.export();
+		//
+		// }
 		// push dom elemt to page
 		$(frappe.render_template(frappe.estate_app_page.body, this)).appendTo(this.page.main)
 
 		// execute methods
 		total();
+		status()
+		// page_chart();
 		// refresh total
 		document.querySelector("#refresh-total").addEventListener('click',
 		()=>{
@@ -209,6 +310,7 @@ let body = `
 		    </div>
 		</div></div>
 			</div>
+			<div id="frost-chart"></div>
 `;
 // frappe.estate_app_page = {}
 frappe.estate_app_page = {
