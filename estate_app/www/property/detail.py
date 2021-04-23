@@ -17,4 +17,5 @@ def get_context(context):
         frappe.local.flags.redirect_location = '/404'
         raise frappe.Redirect
 
+    print(frappe.session)
     return context
