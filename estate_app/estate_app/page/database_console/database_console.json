@@ -1,0 +1,26 @@
+{
+ "content": null,
+ "creation": "2021-04-27 18:49:08.371435",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2021-04-27 18:49:08.371435",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "database-console",
+ "owner": "Administrator",
+ "page_name": "Database Console",
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "Administrator"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Database Console"
+}
