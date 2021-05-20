@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from .. import __version__ as app_version
-from .route import routes
-from .jinja import jenvs
-from .doc_events import doc_events
+# from .route import routes
+# from .jinja import jenvs
+# from .doc_events import doc_events
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -16,7 +16,35 @@ app_license = "MIT"
 
 # Includes in <head>
 # ------------------
-from .public import *
+
+# include js, css files in header of desk.html
+# app_include_css = "/assets/estate_app/css/estate_app.css"
+# app_include_js = "/assets/estate_app/js/estate_app.js"
+app_include_js = "/assets/estate_app/js/desk.js"
+
+# include js, css files in header of web template
+# web_include_css = "/assets/estate_app/css/estate_app.css"
+# web_include_js = "/assets/estate_app/js/estate_app.js"
+
+# include custom scss in every website theme (without file extension ".scss")
+# website_theme_scss = "estate_app/public/scss/website"
+
+# include js, css files in header of web form
+# webform_include_js = {"doctype": "public/js/doctype.js"}
+# webform_include_css = {"doctype": "public/css/doctype.css"}
+
+# include js in page
+# page_js = {"page" : "public/js/file.js"}
+
+# include js in doctype views
+doctype_js = {
+    "Expense Claim" : "public/js/doctype_plugin/expense_claim.js",
+    # "Sales Invoice": ""
+    }
+# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
+# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+
 # Home Pages
 # ----------
 
@@ -28,8 +56,20 @@ from .public import *
 #	"Role": "home_page"
 # }
 
-website_route_rules = routes
-jenv = jenvs
+routes = [
+        {'from_route':'/property/detail/<docname>', 'to_route':'property/detail'},
+        # {'from_route':'/agent/detail/<name>', 'to_route':'agent/detail'},
+    ]
+
+jenvs = {
+    "methods": [
+        "exp:estate_app.hooks.jinja.exp",
+        "property_in_btc:estate_app.hooks.jinja.property_in_btc"
+    ],
+    "filters": [
+        "add:estate_app.hooks.jinja.add"
+    ]
+}
 # Generators
 # ----------
 
@@ -72,7 +112,21 @@ jenv = jenvs
 # ---------------
 # Hook on document methods and events
 
-doc_events = doc_events
+
+
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# },
+    "Property": {
+        "validate": "estate_app.estate_app.doctype.property.events.validate",
+        "on_update": "estate_app.estate_app.doctype.property.events.on_update",
+        "after_insert": "estate_app.estate_app.doctype.property.events.after_insert",
+    }
+}
+
 
 # Scheduled Tasks
 # ---------------

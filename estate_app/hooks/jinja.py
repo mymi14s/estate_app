@@ -2,15 +2,7 @@ import frappe
 from bitcoin_value import currency
 
 
-jenvs = {
-    "methods": [
-        "exp:estate_app.hooks.jinja.exp",
-        "property_in_btc:estate_app.hooks.jinja.property_in_btc"
-    ],
-    "filters": [
-        "add:estate_app.hooks.jinja.add"
-    ]
-}
+
 
 # METHODS
 def property_in_btc(price):
