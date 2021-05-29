@@ -7,12 +7,15 @@
  "engine": "InnoDB",
  "field_order": [
   "property_name",
-  "address",
   "city",
   "property_type",
   "property_price",
   "discount",
+  "address",
   "column_break_3",
+  "section_break_0",
+  "map",
+  "section_break_9",
   "image",
   "agent",
   "agent_name",
@@ -126,11 +129,24 @@
    "label": "City",
    "options": "City",
    "reqd": 1
+  },
+  {
+   "fieldname": "map",
+   "fieldtype": "Geolocation",
+   "label": "Map"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_0",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-04-14 08:39:46.959817",
+ "modified": "2021-05-29 05:32:16.982906",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",
