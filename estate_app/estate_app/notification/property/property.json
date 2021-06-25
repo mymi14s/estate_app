@@ -1,0 +1,38 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2021-06-23 05:28:19.382516",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Property",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Add your message here\n",
+ "modified": "2021-06-24 06:14:57.622587",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "Property",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "condition": "doc.workflow_state == 'Draft'",
+   "receiver_by_document_field": "",
+   "receiver_by_role": "Property User"
+  },
+  {
+   "condition": "doc.workflow_state == 'Pending Approval'",
+   "receiver_by_role": "Property Manager"
+  },
+  {
+   "condition": "doc.workflow_state == 'Pending CEO Approval'",
+   "receiver_by_role": "Property CEO"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Property Workflow: {{ doc.name }} {{ doc.workflow_state }}",
+ "value_changed": "workflow_state"
+}

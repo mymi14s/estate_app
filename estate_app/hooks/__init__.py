@@ -39,7 +39,7 @@ app_include_js = "/assets/estate_app/js/desk.js"
 # include js in doctype views
 doctype_js = {
     "Expense Claim" : "public/js/doctype_plugin/expense_claim.js",
-    # "Sales Invoice": ""
+    "Sales Invoice": "public/js/doctype_plugin/sales_invoice.js",
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

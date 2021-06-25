@@ -25,7 +25,8 @@
   "section_break_8",
   "amenities",
   "pricing_section",
-  "grand_total"
+  "grand_total",
+  "amended_from"
  ],
  "fields": [
   {
@@ -142,11 +143,21 @@
   {
    "fieldname": "section_break_0",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Property",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2021-05-29 05:32:16.982906",
+ "modified": "2021-06-21 06:10:38.004889",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",
