@@ -1,0 +1,68 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-08-15 22:12:58.681501",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Estate App",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Property Report",
+   "link_to": "Property",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Database Console",
+   "link_to": "database-console",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2021-08-15 22:23:30.194935",
+ "modified_by": "ghorz@mail.com",
+ "module": "Estate App",
+ "name": "Estate App",
+ "owner": "ghorz@mail.com",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Property",
+   "link_to": "Property",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Agent",
+   "link_to": "Agent",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Property Amenity Item",
+   "link_to": "Property Amenity Item",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "Dashboard",
+   "label": "Database Console",
+   "link_to": "database-console",
+   "type": "Page"
+  }
+ ]
+}

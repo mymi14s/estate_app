@@ -3,10 +3,10 @@ import random
 import frappe
 from faker import Faker
 fake = Faker()
-fake.seed(0)
+# fake.seed(0)
 
 def populate_property():
-    fake.seed(0)
+    # fake.seed(0)
     # get agents
     agents = [agent.name for agent in frappe.db.sql("""SELECT name FROM `tabAgent`;""", as_dict=True)]
     # get status
@@ -15,13 +15,13 @@ def populate_property():
     property_types = [property.name for property in frappe.db.sql("""SELECT name FROM `tabProperty Type`;""", as_dict=True)]
     # get cities
     cities = [city.name for city in frappe.db.sql("""SELECT name FROM `tabCity`;""", as_dict=True)]
+
     # get amenities
     amenities = frappe.db.sql("""SELECT amenity, amenity_price FROM `tabProperty Amenity Item`;""", as_dict=True)
-
     # house image and name api
     house_images = []
     for n in range(10):
-        house_image_url = "https://api.unsplash.com/search/photos?client_id=e30hHwJaJYwwlImPrthfSijEInEqg20OYL_1Slme09c&query=house"
+        house_image_url = "https://api.unsplash.com/search/photos?client_id=sPLlSmIJVEA4fypdE1G1UVqe7dWY685_y7T4hkVpqHw&query=house"
         img_api = requests.get(house_image_url)
         house_images += [
             {'doctype': 'Property',
@@ -39,6 +39,7 @@ def populate_property():
             ]
 
     # EXECUTE POPULATION
+    print(house_images)
     for p in house_images:
         # try:
         pr = frappe.get_doc(p)
