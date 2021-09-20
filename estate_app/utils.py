@@ -1,5 +1,16 @@
 import frappe
 
+
+def makelog(x, y):
+	try:
+		frappe.log_error(f"{x}, {y}", "try Block")
+	except Exception as e:
+		frappe.log_error(f"{x}, {y}", "except Block")
+
+def makeeq():
+	content = {'x':'Hello', 'y':'hi'}
+	frappe.enqueue(method=makelog, queue='short', timeout=300, **content)
+
 def sendmail(doc, recipients, msg, title, attachments=None):
     email_args = {
         'recipients': recipients,
