@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <th>User</th>
+    <th>Full Name</th>
+  </thead>
+  <tbody>
+    {% for i in users %}
+    <tr>{{i.name}}</tr>
+    <tr>{{i.full_name}}</tr>
+    {% endfor %}
+  </tbody>
+</table>

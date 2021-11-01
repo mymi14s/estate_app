@@ -1,6 +1,5 @@
 import frappe
 
-
 def makelog(x, y):
 	try:
 		frappe.log_error(f"{x}, {y}", "try Block")
@@ -55,7 +54,10 @@ def paginate(doctype, page=0, conditions=" ", paginate_by=6):
     }
 
 
-
+def show_users():
+	print(frappe.db.sql("""
+		SELECT name FROM `tabUser`;
+	""", as_dict=1))
 
 
 
