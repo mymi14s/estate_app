@@ -125,9 +125,9 @@ doc_events = {
         "on_update": "estate_app.estate_app.doctype.property.events.on_update",
         "after_insert": "estate_app.estate_app.doctype.property.events.after_insert",
     },
-    "Comment": {
-        "after_insert": "estate_app.events.enqueue_comment"
-    }
+    # "Comment": {
+    #     "after_insert": "estate_app.events.enqueue_comment"
+    # }
 }
 
 
