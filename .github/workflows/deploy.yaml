@@ -40,4 +40,5 @@ jobs:
             bench switch-to-branch master estate_app # we pull any changes from git
             bench restart # we remove any unused dependencies
             bench doctor # we install any missing dependencies
-            bench migrate # sync database
+            bench --site estate_app.nord-streams.com migrate # sync database
+            bench doctor
