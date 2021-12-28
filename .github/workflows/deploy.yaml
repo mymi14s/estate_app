@@ -37,6 +37,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/frappe/frappe-bench-13/ # we move into our app's folder
-            bench get-app https://github.com/mymi14s/estate_app # we pull any changes from git
+            bench switch-to-branch master estate_app # we pull any changes from git
             bench restart # we remove any unused dependencies
             bench doctor # we install any missing dependencies
+            bench migrate # sync database
