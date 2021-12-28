@@ -1,0 +1,44 @@
+name: Deploy CI/CD
+
+on: [push] # tells github to run this on any push to the repository
+
+jobs:
+  test: # names the job
+    runs-on: ubuntu-latest # sets the version of linux we want to use, should be what you have on your server
+
+    strategy:
+      fail-fast: false # tells github to not run further steps if this one fails
+      # matrix:
+        # node-version: [14.x] # sets the version of node we want to use, should be what you have on your server
+        # python-version: [3.8.x]
+    steps:
+      - uses: actions/checkout@v2 # fetches your commit to test it
+      - name: Use Python # names our step
+        uses: actions/setup-python@v2 # downloads node and npm
+        with:
+          python-version: '3.8.x'
+      # - run: npm install # installs your dependencies
+      # - run: npm run test # builds your app
+      # - run: npm test # runs your test suite
+        env:
+          CI: true # shows terminal output!
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: test # this job depends on "test" having finished
+  #   if: github.ref == 'refs/heads/master' # we tell Github to only execute this step if we're on our master branch (so we don't put unfinished branches in production)
+  #   steps:
+  #     - name: Deploying to Digitalocean droplet
+  #       uses: appleboy/ssh-action@master # An action made to control Linux servers
+  #       with: # We set all our secrets here for the action, these won't be shown in the action logs
+  #         host: ${{ secrets.HOST }}
+  #         username: ${{ secrets.USERNAME }}
+  #         password: ${{ secrets.PASSWORD }}
+  #         port: ${{ secrets.PORT }}
+  #         script: |
+  #           cd <your-app-folder> # we move into our app's folder
+  #           git pull # we pull any changes from git
+  #           npm prune # we remove any unused dependencies
+  #           npm install # we install any missing dependencies
+  #           npm run build # we build our app
+  #           pm2 reload all # we reload the app via PM2
