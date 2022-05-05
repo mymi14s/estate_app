@@ -4,3 +4,4 @@
 *.swp
 tags
 estate_app/docs/current
+node_modules
